@@ -1,20 +1,23 @@
 
-var findReplace = function(input, replace){
-    var input = 'apples';
-    var str = 'I have a lot of apples to share with the whole class.';
-    var replace = 'oranges';
+var findReplace = function(str, wordFind, wordReplace){
+    var arraySplit = str.split(" ");
 
-    var newstr = str.replace(input, replace);
+    for(var i = 0; i < arraySplit.length; i++) {
+        if(arraySplit[i].toLowerCase() === wordFind[i].toLowerCase()) {
+            arraySplit[i] = wordReplace;
+        }
+    }
+    return arraySplit;  
 
 }
 
-$(document).ready(function() {
-    $("form#findReplace").submit(function(event){
-        var phrase = ($("input#phrase").val());
-        var result = pigLatin(phrase);
-
-        $(".answer").text(result);
-        $("#result").show();
-        event.preventDefault();
-    });
-});
+// $(document).ready(function() {
+//     $("form#findReplace").submit(function(event){
+//         var phrase = ($("input#phrase").val());
+//         var result = pigLatin(phrase);
+//
+//         $(".answer").text(result);
+//         $("#result").show();
+//         event.preventDefault();
+//     });
+// });
